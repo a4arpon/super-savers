@@ -1,7 +1,6 @@
 import {
   createUserWithEmailAndPassword,
   getAuth,
-  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -32,7 +31,7 @@ const AuthProvider = ({ children }) => {
     return updateProfile(firebaseAuth.currentUser, {
       displayName: name,
       photoURL:
-        'https://hips.hearstapps.com/hmg-prod/images/johnnydepp.jpg?resize=240:*'
+        'https://hips.hearstapps.com/hmg-prod/images/ben-affleck-attends-the-los-angeles-premiere-of-amazon-news-photo-1678983790.jpg?crop=1xw:0.968xh;center,top&resize=240:*'
     })
   }
   // Firebase signIn with Google
@@ -41,32 +40,25 @@ const AuthProvider = ({ children }) => {
     setLoading(true)
     return signInWithPopup(firebaseAuth, provider)
   }
-  // Firebase signIn with Github
-  const signInWithGH = () => {
-    const provider = new GithubAuthProvider()
-    setLoading(true)
-    return signInWithPopup(firebaseAuth, provider)
-  }
   const logout = () => {
     signOut(firebaseAuth)
   }
   // This effect watches all event of user such as login, logout, signUp etc. etc.
   useEffect(() => {
-    const unsubscribeUser = onAuthStateChanged(firebaseAuth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(firebaseAuth, (currentUser) => {
       setUser(currentUser)
       setLoading(false)
     })
     return () => {
-      unsubscribeUser()
+      unsubscribe()
     }
   }, [user])
-  // Context function and value container
+  // Context function and value container to provide all
   const auth = {
     user,
     setUser,
     loading,
     signInWithGoogle,
-    signInWithGH,
     signUpWithEmail,
     updateUserName,
     logout,
