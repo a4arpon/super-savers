@@ -5,6 +5,7 @@ import Error from '../pages/error/Error'
 import Home from '../pages/home/Home'
 import Login from '../pages/login/Login'
 import Register from '../pages/login/Register'
+import Toy from '../pages/toy/Toy'
 
 const Routes = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const Routes = createBrowserRouter([
       {
         path: '/',
         element: <Home />
+      },
+      {
+        path: '/toy/:id',
+        element: <Toy />
       },
       {
         path: '/blogs',
@@ -27,6 +32,7 @@ const Routes = createBrowserRouter([
         path: '/register',
         element: <Register />
       },
+
       {
         path: '*',
         element: <Error />
