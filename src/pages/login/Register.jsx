@@ -1,13 +1,19 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../contexts/AuthProvider'
 import useTitle from '../../hooks/useTitle'
 
 const Register = () => {
   useTitle('Register | SuperSaver')
-  const { signInWithGoogle, signUpWithEmail, updateUserName } =
+  const { user, signInWithGoogle, signUpWithEmail, updateUserName } =
     useContext(AuthContext)
+  // For navigation form previous page and redirect to it while register is successful
+  const location = useLocation()
+  const from = location.state?.from || '/'
+  if (user) {
+    return <Navigate to={from} replace />
+  }
   const handleEmailSignup = (e) => {
     e.preventDefault()
     const form = e.target
@@ -103,7 +109,7 @@ const Register = () => {
             <div className="divider">OR</div>
             <div className="mb-2">
               <button
-                className="btn bg-blue-500 hover:bg-blue-600 border-none w-full text-white"
+                className="btn bg-blue-500 hover:bg-blue-600 border-none w-full text-white font-bold"
                 onClick={handleAuthWithGoogle}
               >
                 Continue With Google

@@ -26,11 +26,7 @@ const AllToys = () => {
     <div className="container mx-auto my-20">
       <div className="form-control my-10">
         <div className="input-group w-full">
-          <input
-            type="text"
-            placeholder="Search…"
-            className="input input-bordered w-full"
-          />
+          <input type="text" placeholder="Search…" className="input border-1 input-bordered focus:outline-none w-full text-lg" />
           <button className="btn btn-primary">
             <svg
               xmlns="http://www.w3.org/2000/svg"

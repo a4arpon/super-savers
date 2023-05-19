@@ -1,12 +1,18 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../contexts/AuthProvider'
 import useTitle from '../../hooks/useTitle'
 
 const Login = () => {
   useTitle('Login | SuperSaver')
-  const { signInWithGoogle, signInWithEmail } = useContext(AuthContext)
+  const location = useLocation()
+  const fromWhere = location.state?.from?.pathname || '/'
+  const { user, signInWithGoogle, signInWithEmail } = useContext(AuthContext)
+  // For navigation form previous page and redirect to it while login is successful
+  if (user) {
+    return <Navigate to={fromWhere} />
+  }
   const handleAuthWithGoogle = () => {
     signInWithGoogle().catch((err) => {
       toast.error(err.message)
@@ -63,6 +69,7 @@ const Login = () => {
                   <Link
                     to="/register"
                     className="link link-primary font-semibold"
+                    state={{ from: fromWhere }}
                   >
                     Register Now
                   </Link>
@@ -77,7 +84,7 @@ const Login = () => {
             <div className="divider">OR</div>
             <div className="mb-2">
               <button
-                className="btn bg-blue-500 hover:bg-blue-600 border-none w-full text-white"
+                className="btn bg-blue-500 hover:bg-blue-600 border-none w-full text-white font-bold"
                 onClick={handleAuthWithGoogle}
               >
                 Continue With Google
