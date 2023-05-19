@@ -5,11 +5,7 @@ const Toys = ({ queryCategory }) => {
   const [toys, setToys] = useState(null)
   useEffect(() => {
     const fetchData = async () => {
-      let url =
-        'https://b7a11-toy-marketplace-server-side-a4arpon-a4arpon.vercel.app/'
-      if (queryCategory) {
-        url = `https://b7a11-toy-marketplace-server-side-a4arpon-a4arpon.vercel.app/type/${queryCategory}`
-      }
+      const url = `https://b7a11-toy-marketplace-server-side-a4arpon-a4arpon.vercel.app/type/${queryCategory}`
       const response = await fetch(url)
       const result = await response.json()
       setToys(result)

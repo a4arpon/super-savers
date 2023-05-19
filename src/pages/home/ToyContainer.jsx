@@ -5,7 +5,7 @@ import Toys from './Toys'
 import 'react-tabs/style/react-tabs.css'
 
 const ToyContainer = () => {
-  const [queryCategory, setQueryCategory] = useState(null)
+  const [queryCategory, setQueryCategory] = useState('recommended')
   const tabClasses = {
     inactive:
       'btn btn-outline-accent border-2 border-gray-700 text-gray-700 lg:px-10 hover:bg-gray-800 hover:text-white',
@@ -18,7 +18,7 @@ const ToyContainer = () => {
           <Tab
             className={tabClasses.inactive}
             selectedClassName={tabClasses.active}
-            onClick={() => setQueryCategory(null)}
+            onClick={() => setQueryCategory('recommended')}
           >
             Recommend
           </Tab>
