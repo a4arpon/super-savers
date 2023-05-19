@@ -6,4 +6,5 @@
 }
 .file-input::file-selector-button {
   color: #fff;
+  @apply bg-primary
 }

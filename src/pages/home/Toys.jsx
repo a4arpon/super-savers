@@ -17,10 +17,12 @@ const Toys = ({ queryCategory }) => {
       {toys &&
         toys.map((toy) => (
           <div
-            className="card card-compact w-full bg-base-100 shadow-xl"
+            className="card card-compact w-full bg-white shadow-xl"
             key={toy._id}
           >
-            {/* <figure><img src={toy.img} alt="Shoes" /></figure> */}
+            <figure>
+              <img src={toy.img} alt="Shoes" className="h-64" />
+            </figure>
             <div className="card-body">
               <h2 className="card-title text-xl border-b-2 pb-2">
                 {toy.title}

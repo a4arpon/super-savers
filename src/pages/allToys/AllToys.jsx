@@ -61,7 +61,7 @@ const AllToys = () => {
           <tbody>
             {toys &&
               toys.map((toy, index) => (
-                <Toy key={toy._key} number={index + 1} toy={toy} />
+                <Toy key={toy._id} number={index + 1} toy={toy} />
               ))}
           </tbody>
         </table>
