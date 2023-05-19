@@ -21,7 +21,7 @@ const Toys = ({ queryCategory }) => {
             key={toy._id}
           >
             <figure>
-              <img src={toy.img} alt="Shoes" className="h-64" />
+              <img src={toy.img} alt="Shoes" className="h-64 pt-5" />
             </figure>
             <div className="card-body">
               <h2 className="card-title text-xl border-b-2 pb-2">
