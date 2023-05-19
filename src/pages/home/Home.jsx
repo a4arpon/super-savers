@@ -5,18 +5,19 @@ import Toys from './Toys'
 
 const Home = () => {
   useTitle('Home | SuperSaver')
+  const tabInActive =
+    'btn btn-outline-accent border-2 border-gray-700 text-gray-700 lg:px-10 hover:bg-gray-800 hover:text-white'
+  const tabActive = 'btn btn-accent text-white lg:px-10'
   return (
     <div className="container mx-auto">
       <Hero />
       <div className="mt-20 px-5">
         <Tabs>
-          <TabList className="flex justify-center gap-2">
-            <Tab className="btn btn-accent text-white lg:px-10">Recommend</Tab>
-            <Tab className="btn btn-accent text-white lg:px-10">Avengers</Tab>
-            <Tab className="btn btn-accent text-white lg:px-10">
-              Justice League
-            </Tab>
-            <Tab className="btn btn-accent text-white lg:px-10">Titans</Tab>
+          <TabList className="flex flex-col lg:flex-row justify-center gap-2">
+            <Tab className={tabActive}>Recommend</Tab>
+            <Tab className={tabInActive}>Avengers</Tab>
+            <Tab className={tabInActive}>Justice League</Tab>
+            <Tab className={tabInActive}>Titans</Tab>
           </TabList>
 
           <TabPanel>
