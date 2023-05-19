@@ -1,14 +1,19 @@
-const Toy = () => {
+import { Link } from 'react-router-dom'
+
+const Toy = ({ toy, number }) => {
+  const { _id, title, price, seller, category, quantity } = toy
   return (
     <tr>
-      <th>1</th>
-      <td>Cy Ganderton</td>
-      <td>Quality Control Specialist</td>
-      <td>Blue</td>
-      <td>Blue</td>
-      <td>Blue</td>
+      <th>{number}</th>
+      <td>{title || 'Not Available'}</td>
+      <td>{price || 0}$</td>
+      <td>{category.toUpperCase() || 'Not Available'}</td>
+      <td>{quantity || 'Not Available'}</td>
+      <td>{seller || 'Not Available'}</td>
       <td>
-        <button className="btn btn-primary">View Details</button>
+        <Link to={'/toy/' + _id} className="btn btn-primary">
+          View Details
+        </Link>
       </td>
     </tr>
   )
