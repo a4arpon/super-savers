@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { Link, Navigate, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../contexts/AuthProvider'
@@ -9,6 +9,11 @@ const Login = () => {
   const location = useLocation()
   const fromWhere = location.state?.from?.pathname || '/'
   const { user, signInWithGoogle, signInWithEmail } = useContext(AuthContext)
+  useEffect(() => {
+    if (fromWhere !== '/') {
+      toast.warn('You have to log in first to view details')
+    }
+  }, [fromWhere])
   // For navigation form previous page and redirect to it while login is successful
   if (user) {
     return <Navigate to={fromWhere} />
