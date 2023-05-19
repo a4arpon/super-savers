@@ -25,7 +25,7 @@ const Toys = ({ queryCategory }) => {
               <h2 className="card-title text-xl border-b-2 pb-2">
                 {toy.title}
               </h2>
-              <p className="text-lg">Price: {toy.price}</p>
+              <p className="text-lg">Price: {toy.price}$</p>
               <p className="text-lg">Ratings: {toy.rating}</p>
               <div className="card-actions justify-end border-t-2 pt-2">
                 <Link className="btn btn-primary" to={'/toy/' + toy._id}>
