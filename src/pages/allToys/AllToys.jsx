@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useLoaderData } from 'react-router-dom'
 import useTitle from '../../hooks/useTitle'
 import Toy from './Toy'
 
@@ -7,7 +8,8 @@ const AllToys = () => {
   const [toys, setToys] = useState([])
   const [currentPage, setCurrentPage] = useState(0)
   const [pageItemLimit, setPageItemLimit] = useState(20)
-  const totalPages = Math.ceil(toys.length / pageItemLimit)
+  const totalToys = useLoaderData()
+  const totalPages = Math.ceil(27 / pageItemLimit)
   const pageNumber = [...Array(totalPages).keys()]
   useEffect(() => {
     const url = `https://b7a11-toy-marketplace-server-side-a4arpon.vercel.app/?page=${currentPage}&limit=${pageItemLimit}`
@@ -26,7 +28,11 @@ const AllToys = () => {
     <div className="container mx-auto my-20">
       <div className="form-control my-10">
         <div className="input-group w-full">
-          <input type="text" placeholder="Search…" className="input border-1 input-bordered focus:outline-none w-full text-lg" />
+          <input
+            type="text"
+            placeholder="Search…"
+            className="input border-1 input-bordered focus:outline-none w-full text-lg"
+          />
           <button className="btn btn-primary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
