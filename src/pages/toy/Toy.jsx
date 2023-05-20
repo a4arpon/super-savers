@@ -8,7 +8,7 @@ const Toy = () => {
   return (
     <div className="my-20 container mx-auto ">
       <div className="grid lg:grid-cols-2 gap-2 p-2 lg:p-5 bg-white lg:rounded-lg">
-        <div className="border-b-2 pb-5 lg:pb-0 lg:border-b-0 lg:border-r-2 lg:pr-5">
+        <div className="border-b-2 pb-5 lg:pb-0 lg:border-b-0 lg:border-r-2 lg:pr-5 flex justify-center">
           <img src={img} alt="" className="h-96" />
         </div>
         <div className="pt-2 lg:pt-0 lg:pl-3">

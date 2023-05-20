@@ -8,8 +8,8 @@ const AllToys = () => {
   const [toys, setToys] = useState([])
   const [currentPage, setCurrentPage] = useState(0)
   const [pageItemLimit, setPageItemLimit] = useState(20)
-  const totalToys = useLoaderData()
-  const totalPages = Math.ceil(27 / pageItemLimit)
+  const { totalToys } = useLoaderData()
+  const totalPages = Math.ceil(totalToys / pageItemLimit)
   const pageNumber = [...Array(totalPages).keys()]
   useEffect(() => {
     const url = `https://b7a11-toy-marketplace-server-side-a4arpon.vercel.app/?page=${currentPage}&limit=${pageItemLimit}`
