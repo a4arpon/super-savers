@@ -1,9 +1,6 @@
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 const Toys = ({ queryCategory }) => {
-  AOS.init()
   const [toys, setToys] = useState(null)
   useEffect(() => {
     const fetchData = async () => {

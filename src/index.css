@@ -6,5 +6,8 @@
 }
 .file-input::file-selector-button {
   color: #fff;
-  @apply bg-primary
+  @apply bg-primary;
+}
+.lazy-load-image-background.blur.lazy-load-image-loaded {
+  width: 100%;
 }
