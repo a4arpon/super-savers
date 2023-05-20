@@ -1,4 +1,4 @@
-const ToyTableRow = ({ toy, serial, delToy }) => {
+const ToyTableRow = ({ toy, serial, delToy, upToy }) => {
   const { _id, title, price, quantity, rating, category } = toy
   return (
     <tr>
@@ -9,7 +9,9 @@ const ToyTableRow = ({ toy, serial, delToy }) => {
       <td>{rating}</td>
       <td>{category}</td>
       <td className="flex gap-1">
-        <button className="btn btn-warning">Edit</button>
+        <button className="btn btn-warning" onClick={() => upToy(_id)}>
+          Edit
+        </button>
         <button className="btn btn-error" onClick={() => delToy(_id)}>
           Del
         </button>
