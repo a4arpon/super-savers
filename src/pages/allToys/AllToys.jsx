@@ -10,7 +10,7 @@ const AllToys = () => {
   const totalPages = Math.ceil(toys.length / pageItemLimit)
   const pageNumber = [...Array(totalPages).keys()]
   useEffect(() => {
-    const url = `https://b7a11-toy-marketplace-server-side-a4arpon-a4arpon.vercel.app/?page=${currentPage}&limit=${pageItemLimit}`
+    const url = `https://b7a11-toy-marketplace-server-side-a4arpon.vercel.app/?page=${currentPage}&limit=${pageItemLimit}`
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

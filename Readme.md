@@ -1,1 +1,1 @@
-https://b7a11-toy-marketplace-server-side-a4arpon-a4arpon.vercel.app/
+https://b7a11-toy-marketplace-server-side-a4arpon.vercel.app/
