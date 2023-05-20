@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
-import Toys from './Toys'
-
 import 'react-tabs/style/react-tabs.css'
-
+import Toys from './Toys'
 const ToyContainer = () => {
   const [queryCategory, setQueryCategory] = useState('recommended')
   const tabClasses = {

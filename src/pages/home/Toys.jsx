@@ -1,7 +1,9 @@
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
 const Toys = ({ queryCategory }) => {
+  AOS.init()
   const [toys, setToys] = useState(null)
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +21,7 @@ const Toys = ({ queryCategory }) => {
           <div
             className="card card-compact w-full bg-white shadow-xl"
             key={toy._id}
+            data-aos="flip-left"
           >
             <figure>
               <img src={toy.img} alt="Shoes" className="h-64 pt-5" />
