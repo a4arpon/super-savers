@@ -47,7 +47,11 @@ const Routes = createBrowserRouter([
       },
       {
         path: '/addToys',
-        element: <AddToy />
+        element: (
+          <PrivateRoutes>
+            <AddToy />
+          </PrivateRoutes>
+        )
       },
       {
         path: '/blogs',
