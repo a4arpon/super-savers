@@ -1,4 +1,5 @@
 import useTitle from '../../hooks/useTitle'
+import Feedback from './Feedback'
 import FunWorld from './FunWorld'
 import Gallery from './Gallery'
 import Hero from './Hero'
@@ -15,6 +16,7 @@ const Home = () => {
         <ToyContainer />
       </div>
       <FunWorld />
+      <Feedback />
     </div>
   )
 }

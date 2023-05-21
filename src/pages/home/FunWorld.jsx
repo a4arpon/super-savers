@@ -2,7 +2,7 @@ import { toast } from 'react-toastify'
 
 const FunWorld = () => {
   return (
-    <div className="lg:flex gap-3 my-20 p-10 bg-white lg:rounded-lg shadow-lg">
+    <div className="lg:flex gap-3 my-20 p-5 lg:p-10 bg-white lg:rounded-lg shadow-lg">
       <div className="lg:w-1/2 flex justify-center items-center lg:pr-10 mb-2 lg:mb-0 border-b-2 lg:border-b-0 pb-5 lg:pb-0">
         <h3 className="text-4xl font-semibold leading-relaxed text-gray-600">
           Sometimes you need to visit
@@ -14,8 +14,8 @@ const FunWorld = () => {
           <span className="text-error lg:text-5xl">family</span> and
           <span className="text-error lg:text-5xl"> friends</span>. If
           you&rsquo;re already interested to do this then
-          <span className="text-info"> register</span> and join in your wishlist
-          then <span className="text-warning lg:text-5xl"> grab</span> your{' '}
+          <span className="text-info"> register </span>
+          and <span className="text-warning lg:text-5xl"> grab</span> your{' '}
           <span className="text-success lg:text-6xl">ticket</span> soon.
         </h3>
       </div>
