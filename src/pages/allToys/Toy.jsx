@@ -5,7 +5,10 @@ const Toy = ({ toy, number }) => {
   return (
     <tr>
       <th>{number}</th>
-      <td>{title || 'Not Available'}</td>
+      <td>
+        {title.substring(0, 60) || 'Not Available'}
+        {title.length > 60 && '...'}
+      </td>
       <td>{price || 0}$</td>
       <td>{category.toUpperCase() || 'Not Available'}</td>
       <td>{quantity || 'Not Available'}</td>

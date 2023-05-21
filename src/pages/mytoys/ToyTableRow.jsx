@@ -5,11 +5,14 @@ const ToyTableRow = ({ toy, serial, delToy, upToy }) => {
   return (
     <tr>
       <th>{serial + 1}</th>
-      <td>{title}</td>
-      <td>{price}$</td>
-      <td>{quantity}</td>
-      <td>{rating}</td>
-      <td>{category}</td>
+      <td>
+        {title.substring(0, 60) || 'Not Available'}
+        {title.length > 60 && '...'}
+      </td>
+      <td>{price || 0}$</td>
+      <td>{quantity || 'Not Available'}</td>
+      <td>{rating || 'Not Available'}</td>
+      <td>{category.toUpperCase() || 'Not Available'}</td>
       <td className="flex gap-1">
         <Link className="btn font-semibold btn-primary" to={'/toy/' + _id}>
           View
