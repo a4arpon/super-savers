@@ -20,7 +20,7 @@
 To run tests, run the following command
 
 ```bash
-  npm run rev
+  npm run dev
 ```
 ## Production Build
 
