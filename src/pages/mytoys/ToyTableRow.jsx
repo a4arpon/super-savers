@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const ToyTableRow = ({ toy, serial, delToy, upToy }) => {
   const { _id, title, price, quantity, rating, category } = toy
   return (
@@ -9,10 +11,20 @@ const ToyTableRow = ({ toy, serial, delToy, upToy }) => {
       <td>{rating}</td>
       <td>{category}</td>
       <td className="flex gap-1">
-        <button className="btn btn-warning" onClick={() => upToy(_id)}>
+        <Link className="btn font-semibold btn-primary" to={'/toy/' + _id}>
+          View
+        </Link>
+        <label
+          className="btn font-semibold btn-warning"
+          htmlFor="my-modal-3"
+          onClick={() => upToy(toy)}
+        >
           Edit
-        </button>
-        <button className="btn btn-error" onClick={() => delToy(_id)}>
+        </label>
+        <button
+          className="btn font-semibold btn-error"
+          onClick={() => delToy(_id)}
+        >
           Del
         </button>
       </td>

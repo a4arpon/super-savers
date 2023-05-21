@@ -29,8 +29,7 @@ const Routes = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            'https://b7a11-toy-marketplace-server-side-a4arpon.vercel.app/toy/' +
-              params.id
+            `https://b7a11-toy-marketplace-server-side-a4arpon.vercel.app/toy/${params.id}`
           )
       },
       {
@@ -43,7 +42,11 @@ const Routes = createBrowserRouter([
       },
       {
         path: '/myToys',
-        element: <MyToys />
+        element: (
+          <PrivateRoutes>
+            <MyToys />
+          </PrivateRoutes>
+        )
       },
       {
         path: '/addToys',
