@@ -48,6 +48,17 @@ const Footer = () => {
             </a>
           </div>
         </div>
+        <div className="flex flex-col gap-2 text-lg">
+          <p>
+            <strong>Email : </strong> mail@supersaver.com
+          </p>
+          <p>
+            <strong>Phone : </strong> +880 1995942029
+          </p>
+          <p>
+            <strong>Addr : </strong> Dhaka, Bangladesh, Asia.
+          </p>
+        </div>
         <div className="text-lg">
           <p>Subscribe Our News Letter</p>
           <div className="input-group">
