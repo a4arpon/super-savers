@@ -20,14 +20,20 @@ const Register = () => {
     const name = form.name.value
     const email = form.email.value
     const password = form.password.value
-    signUpWithEmail(email, password)
-      .then((res) => {
-        updateUserName(name)
-        toast.success('Registration Successful')
-      })
-      .catch((err) => {
-        toast.error(err.message)
-      })
+    if (/^(?=.*\d)(?=.*[a-z]).{6,20}$/.test(password)) {
+      signUpWithEmail(email, password)
+        .then((res) => {
+          updateUserName(name)
+          toast.success('Registration Successful')
+        })
+        .catch((err) => {
+          toast.error(err.message)
+        })
+    } else {
+      toast.warning(
+        'Password must be more than 6 chars and contain alphabetic chars'
+      )
+    }
   }
   const handleAuthWithGoogle = () => {
     signInWithGoogle().catch((err) => {
