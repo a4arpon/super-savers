@@ -6,12 +6,14 @@ import { AuthContext } from '../../contexts/AuthProvider'
 import useTitle from '../../hooks/useTitle'
 import ToyTableHead from './ToyTableHead'
 import ToyTableRow from './ToyTableRow'
+
 const MyToys = () => {
   useTitle('My Toys | SuperSaver')
   const { user } = useContext(AuthContext)
   const email = user?.email
   const [myToys, setMyToys] = useState([])
   const [updateAbleToy, setUpdateAbleToy] = useState({})
+  const [updateStatus, setUpdateStatus] = useState(false)
   const modalToggler = useRef()
   useEffect(() => {
     fetch(
@@ -25,9 +27,12 @@ const MyToys = () => {
       }
     )
       .then((res) => res.json())
-      .then((data) => setMyToys(data))
+      .then((data) => {
+        setMyToys(data)
+        setUpdateStatus(false)
+      })
       .catch((err) => console.log(err))
-  }, [email])
+  }, [email, updateStatus])
   const delToyFormList = (id) => {
     Swal.fire({
       title: 'Are you sure?',
@@ -41,10 +46,15 @@ const MyToys = () => {
           {
             method: 'DELETE'
           }
-        )
-        const tempToyList = myToys.filter((toys) => toys._id !== id)
-        setMyToys(tempToyList)
-        Swal.fire('Deleted!')
+        ).then((res) => {
+          if (res.status === 200) {
+            const tempToyList = myToys.filter((toys) => toys._id !== id)
+            setMyToys(tempToyList)
+            Swal.fire('Deleted!')
+          } else {
+            toast.error('Delete Error')
+          }
+        })
       }
     })
   }
@@ -63,7 +73,7 @@ const MyToys = () => {
     const response = await fetch(
       `https://b7a11-toy-marketplace-server-side-a4arpon.vercel.app/toy/${_id}`,
       {
-        method: 'PATCH',
+        method: 'PUT',
         body: JSON.stringify(updatedToy),
         headers: {
           'Content-Type': 'application/json'
@@ -71,6 +81,7 @@ const MyToys = () => {
       }
     )
     if (response.status === 200) {
+      setUpdateStatus(true)
       toast.success('Toy Updated')
       modalToggler.current.checked = false
     } else {
