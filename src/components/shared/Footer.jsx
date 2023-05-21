@@ -72,7 +72,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="lg:col-span-3 mt-10 bg-base-300 text-center py-2 font-extrabold">
-        <p>Copyright 2023 SuperSaver &copy;</p>
+        <p>&copy;2023 SuperSaver, Inc.</p>
       </div>
     </footer>
   )
