@@ -25,7 +25,7 @@ const AllToys = () => {
     setCurrentPage(0)
   }
   return (
-    <div className="container mx-auto my-20">
+    <div className="container mx-auto my-20 min-h-screen">
       <div className="form-control my-10">
         <div className="input-group w-full">
           <input

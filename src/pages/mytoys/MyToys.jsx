@@ -89,7 +89,7 @@ const MyToys = () => {
     }
   }
   return (
-    <div className="my-20 container mx-auto">
+    <div className="my-20 container mx-auto min-h-screen">
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
           <ToyTableHead />
